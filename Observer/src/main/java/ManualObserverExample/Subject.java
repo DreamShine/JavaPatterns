@@ -6,7 +6,7 @@ package ManualObserverExample;
 public interface Subject
 {
     public abstract void notifyObservers();
-    public abstract void registerObserver();
-    public abstract void removeObservers();
+    public abstract void registerObserver(Observer o);
+    public abstract void removeObservers(Observer o);
 
 }
