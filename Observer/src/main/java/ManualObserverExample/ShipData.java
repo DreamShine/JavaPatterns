@@ -19,18 +19,20 @@ public class ShipData implements Subject
     }
 
     public void notifyObservers() {
-        for(int i = 0; i < observers.size(); i++)
+        for(Observer observer : observers)
         {
-            Observer observer = observers.get(i);
             observer.update(engineTemperature, crewNumber, cruisingSpeed);
         }
     }
 
     public void registerObserver(Observer o) {
-
+        observers.add(o);
     }
 
     public void removeObservers(Observer o) {
+        int i = observers.indexOf(o);
+        if(i >= 1)
+            observers.remove(i);
 
     }
 }
