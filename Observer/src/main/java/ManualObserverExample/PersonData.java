@@ -5,15 +5,13 @@ import java.util.ArrayList;
 /**
  * Created by DreamShine on 11/10/2016.
  */
-public class ShipData implements Subject
+public class PersonData implements Subject
 {
-    private Float engineTemperature;
-    private int crewNumber;
-    private double cruisingSpeed;
+    private Float mass;
 
     private ArrayList<Observer> observers;
 
-    public ShipData()
+    public PersonData()
     {
         observers = new ArrayList();
     }
@@ -21,8 +19,9 @@ public class ShipData implements Subject
     public void notifyObservers() {
         for(Observer observer : observers)
         {
-            observer.update(engineTemperature, crewNumber, cruisingSpeed);
+            observer.update(mass);
         }
+        System.out.printf("Subject has finished updating updating observers..%n%n");
     }
 
     public void registerObserver(Observer o) {
@@ -34,5 +33,11 @@ public class ShipData implements Subject
         if(i >= 1)
             observers.remove(i);
 
+    }
+
+    public void setPersonSpecifications(Float mass)
+    {
+        this.mass = mass;
+        notifyObservers();
     }
 }
