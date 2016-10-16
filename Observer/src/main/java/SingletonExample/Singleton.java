@@ -5,7 +5,7 @@ package SingletonExample;
  */
 public class Singleton {
 
-    private static Singleton uniqueInstance;
+    private static Singleton uniqueInstance = new Singleton();
     private void Singleton()
     {
 
@@ -13,10 +13,6 @@ public class Singleton {
 
     public static synchronized Singleton getInstance()
     {
-        if(uniqueInstance == null)
-        {
-            uniqueInstance = new Singleton();
-        }
         return uniqueInstance;
     }
 }
